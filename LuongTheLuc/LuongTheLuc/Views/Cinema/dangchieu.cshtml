@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "dachieu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<LuongTheLuc.Models.Phim>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Sắp chiếu</h1>
+<div class="row" style="margin-top:30px">
+    @foreach (var item in Model)
+    {
+        if ((DateTime)item.ngaychieu > DateTime.Today)
+        {
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading ">
+                        <strong>
+                            @item.tenphim
+                        </strong>
+                    </div>
+                    <div class="panel-body">
+                        <p><strong>Đạo diễn: </strong>@item.daodien</p>
+                        <p><img src="@item.hinh" width="300" alt="" /> <strong></strong></p>
+                        <p><strong>Ngày chiếu:</strong>@item.ngaychieu</p>
+                        <p><strong></strong></p>
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <div class="pull-right">
+                            <div class="DatMua">
+
+                                <a class="btn btn-warning" href="">sắp chiếu</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+
+
